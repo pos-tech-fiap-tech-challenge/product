@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class ProductController {
 
-    public static final String BASE_URL = "/lanchonete/product";
+    public static final String BASE_URL = "/products";
 
     private final SaveProductUseCase saveProductUseCase;
 
@@ -44,8 +44,8 @@ public class ProductController {
 
     @PutMapping
     public ResponseEntity<Product> updateProduct(@Validated(OnUpdate.class) @RequestBody ProductRequest productRequest) {
-        Product product= updateProductUseCase.update(productRequest);
-        return new ResponseEntity<>( HttpStatus.CREATED);
+        Product product = updateProductUseCase.update(productRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{productId}")
