@@ -1,8 +1,8 @@
 name: Build and SonarQube Analysis
 
 on:
-  pull_request:
-    branches:
+  push:
+    pull_request:
       - main
 jobs:
   build:
