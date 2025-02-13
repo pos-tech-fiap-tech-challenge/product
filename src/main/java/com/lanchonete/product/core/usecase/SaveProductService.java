@@ -34,19 +34,6 @@ public class SaveProductService implements SaveProductUseCase {
     @Override
     public void saveProduct(ProductRequest productRequest) {
         Product product = productMapper.toProduct(productRequest);
-        product.setCategory(getProductCategory(productRequest.getCategoryId()));
         productPort.saveOrUpdate(product);
     }
-
-    private ProductCategory getProductCategory(UUID id) {
-        ProductCategory productCategory = productCategoryPort.findProductCategory(id);
-        if (Objects.isNull(productCategory)) {
-            throw new InvalidCategoryException("Invalid Category: " + id);
-        }
-        return productCategory;
-    }
-
-
-
-
 }

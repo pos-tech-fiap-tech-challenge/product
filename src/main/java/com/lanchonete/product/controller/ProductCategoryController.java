@@ -16,7 +16,7 @@ import java.util.UUID;
 @RequestMapping(ProductCategoryController.BASE_URL)
 public class ProductCategoryController {
 
-    public static final String BASE_URL = "/lanchonete/category";
+    public static final String BASE_URL = "/products/categories";
 
     private ProductCategoryUseCase productCategoryUseCase;
 
@@ -30,6 +30,5 @@ public class ProductCategoryController {
         ProductCategory productCategory = productCategoryUseCase.findProductCategory(categoryId);
         return ResponseEntity.ok(productCategory);
     }
-
 
 }

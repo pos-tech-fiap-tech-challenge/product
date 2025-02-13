@@ -21,7 +21,7 @@ public class Product {
     @NotNull(groups = OnUpdate.class, message = "CategoryId is required for update")
     private UUID productId;
 
-    private ProductCategory category;
+    private String category;
 
     @NotNull(message = "name product required")
     private String name;
@@ -29,10 +29,4 @@ public class Product {
     private BigDecimal price;
 
     private String description;
-
-    public void setCategory(ProductCategory productCategory){
-        productCategory.addProducts(this);
-        this.category = productCategory;
-    }
-
 }
