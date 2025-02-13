@@ -13,5 +13,4 @@ public interface ProductMapper {
     Product toProduct(ProductRequest productRequest);
     Product toProduct(ProductEntity entity );
     ProductEntity toEntity(Product product);
-
 }
