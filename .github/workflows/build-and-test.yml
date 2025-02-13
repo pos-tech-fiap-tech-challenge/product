@@ -2,6 +2,7 @@ name: Build and SonarQube Analysis
 
 on:
   pull_request:
+    branches:
       - main
 jobs:
   build:
