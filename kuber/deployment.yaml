@@ -18,7 +18,7 @@ spec:
     spec:
       serviceAccountName: product-service-account
       containers:
-        - name: app
+        - name: product
           image: <ECR_REPOSITORY_URL>:latest
           env:
             - name: environment
