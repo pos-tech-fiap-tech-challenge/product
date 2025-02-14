@@ -15,4 +15,4 @@ metadata:
   namespace: lanchonete
 type: Opaque
 data:
-  SPRING_DATASOURCE_PASSWORD: bXlzZWN1cmVwYXNzd29yZA==
+  SPRING_DATASOURCE_PASSWORD: cGFzc3dvcmQ=s
