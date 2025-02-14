@@ -4,6 +4,7 @@ import com.lanchonete.product.controller.DTO.ProductRequest;
 import com.lanchonete.product.controller.group.OnCreate;
 import com.lanchonete.product.controller.group.OnUpdate;
 import com.lanchonete.product.core.entities.Product;
+import com.lanchonete.product.core.usecase.interfaces.GetProductUseCase;
 import com.lanchonete.product.core.usecase.interfaces.RemoveProductUseCase;
 import com.lanchonete.product.core.usecase.interfaces.SaveProductUseCase;
 import com.lanchonete.product.core.usecase.interfaces.UpdateProductUseCase;
@@ -21,7 +22,7 @@ import java.util.UUID;
 
 public class ProductController {
 
-    public static final String BASE_URL = "/lanchonete/product";
+    public static final String BASE_URL = "/products";
 
     private final SaveProductUseCase saveProductUseCase;
 
@@ -29,10 +30,13 @@ public class ProductController {
 
     private final RemoveProductUseCase removeProductUseCase;
 
-    public ProductController(SaveProductUseCase saveProductUseCase, UpdateProductUseCase updateProductUseCase, RemoveProductUseCase removeProductUseCase) {
+    private final GetProductUseCase getProductUseCase;
+
+    public ProductController(SaveProductUseCase saveProductUseCase, UpdateProductUseCase updateProductUseCase, RemoveProductUseCase removeProductUseCase, GetProductUseCase getProductUseCase) {
         this.saveProductUseCase = saveProductUseCase;
         this.updateProductUseCase = updateProductUseCase;
         this.removeProductUseCase = removeProductUseCase;
+        this.getProductUseCase = getProductUseCase;
     }
 
     @PostMapping
@@ -44,14 +48,18 @@ public class ProductController {
 
     @PutMapping
     public ResponseEntity<Product> updateProduct(@Validated(OnUpdate.class) @RequestBody ProductRequest productRequest) {
-        Product product= updateProductUseCase.update(productRequest);
-        return new ResponseEntity<>( HttpStatus.CREATED);
+        Product product = updateProductUseCase.update(productRequest);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{productId}")
     public ResponseEntity<Product> removeProduct(@PathVariable("productId") UUID productId) {
         removeProductUseCase.removeProduct(productId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    public ResponseEntity<Product> getProductById(String productId){
+        return ResponseEntity.ok(getProductUseCase.getProduct(productId));
     }
 
 }
