@@ -10,26 +10,26 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    http:
-      paths:
-        - path: /product
-          pathType: Prefix
-          backend:
-            service:
-              name: product-service
-              port:
-                number: 8080
-        - path: /order-payment
-          pathType: Prefix
-          backend:
-            service:
-              name: order-payment-service
-              port:
-                number: 8080
-        - path: /order
-          pathType: Prefix
-          backend:
-            service:
-              name: order-service
-              port:
-                number: 8080
+    - http:
+        paths:
+          - path: /product
+            pathType: Prefix
+            backend:
+              service:
+                name: product-service
+                port:
+                  number: 8080
+          - path: /order-payment
+            pathType: Prefix
+            backend:
+              service:
+                name: order-payment-service
+                port:
+                  number: 8080
+          - path: /order
+            pathType: Prefix
+            backend:
+              service:
+                name: order-service
+                port:
+                  number: 8080
