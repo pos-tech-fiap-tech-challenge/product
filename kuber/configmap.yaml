@@ -4,7 +4,7 @@ metadata:
   name: product-config
   namespace: lanchonete
 data:
-  SPRING_DATASOURCE_URL: lanchonete-cluster.cluster-c56iugywe6gv.us-east-1.docdb.amazonaws.com:3306?useTimezone=true&serverTimezone=America/Sao_Paulo
+  SPRING_DATASOURCE_URL: jdbc:mysql://lanchonete-cluster.cluster-c56iugywe6gv.us-east-1.docdb.amazonaws.com:3306?useTimezone=true&serverTimezone=America/Sao_Paulo
   SPRING_DATASOURCE_USERNAME: root
   environment: dev
 ---
