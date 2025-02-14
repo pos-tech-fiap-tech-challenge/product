@@ -70,4 +70,3 @@ jobs:
           kubectl apply -f kuber/service.yaml 
           kubectl apply -f kuber/hpa.yaml 
           kubectl apply -f kuber/deployment.yaml
-          kubectl apply -f kuber/ingress.yaml
