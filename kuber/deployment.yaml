@@ -4,17 +4,17 @@ metadata:
   name: product
   namespace: lanchonete
   labels:
-    app: product
+    app: lanchonete
     environment: production
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: product
+      app: lanchonete
   template:
     metadata:
       labels:
-        app: product
+        app: lanchonete
     spec:
       serviceAccountName: product-service-account
       containers:
