@@ -59,7 +59,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{productId}")
-    public ResponseEntity<Product> getProductById(String productId){
+    public ResponseEntity<Product> getProductById(@PathVariable String productId){
         return ResponseEntity.ok(getProductUseCase.getProduct(productId));
     }
 
