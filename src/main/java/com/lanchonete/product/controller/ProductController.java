@@ -58,7 +58,7 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping
+    @DeleteMapping("/{productId}")
     public ResponseEntity<Product> getProductById(String productId){
         return ResponseEntity.ok(getProductUseCase.getProduct(productId));
     }
