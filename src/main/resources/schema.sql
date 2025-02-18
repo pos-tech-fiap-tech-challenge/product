@@ -28,7 +28,7 @@ INSERT INTO product_category (product_category_id, description)
 
 INSERT INTO product_category (product_category_id, description)
     SELECT '33333333-3333-3333-3333-333333333333', 'Acompanhamento'
-    WHERE NOT EXISTS (SELECT 1 FROM product_category WHERE product_category_id = '33333333-3333-3333-3333-333333333333');
+    WHERE NOT  EXISTS (SELECT 1 FROM product_category WHERE product_category_id = '33333333-3333-3333-3333-333333333333');
 
 -- Inserir produtos se ainda não existirem
 INSERT INTO product (product_id, name, description, price, category_id)
