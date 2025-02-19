@@ -1,3 +1,5 @@
+package com.lanchonete.product.repository;
+
 import com.lanchonete.product.core.entities.Product;
 import com.lanchonete.product.core.entities.ProductCategory;
 import com.lanchonete.product.core.exceptions.ProductCategoryNotFoundException;
@@ -83,10 +85,10 @@ class ProductAdapterTest {
         assertFalse(productAdapter.findById(productId));
     }
 
-    /*@Test
+    @Test
     void testSaveOrUpdate_WhenValidProduct_ShouldSaveSuccessfully() {
         when(productMapper.toEntity(product)).thenReturn(productEntity);
-        when(productCategoryRepository.findByDescription("Bebida"))
+        when(productCategoryRepository.findByDescription(any()))
                 .thenReturn(Optional.of(productCategoryEntity));
         when(productRepository.save(productEntity)).thenReturn(productEntity);
         when(productMapper.toProduct(productEntity)).thenReturn(product);
@@ -100,9 +102,9 @@ class ProductAdapterTest {
     @Test
     void testSaveOrUpdate_WhenCategoryNotFound_ShouldThrowException() {
         when(productMapper.toEntity(product)).thenReturn(productEntity);
-        when(productCategoryRepository.findByDescription("Bebida"))
+        when(productCategoryRepository.findByDescription(any()))
                 .thenReturn(Optional.empty());
 
         assertThrows(ProductCategoryNotFoundException.class, () -> productAdapter.saveOrUpdate(product));
-    }*/
+    }
 }
