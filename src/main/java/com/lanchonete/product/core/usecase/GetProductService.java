@@ -4,15 +4,17 @@ import com.lanchonete.product.core.entities.Product;
 import com.lanchonete.product.core.usecase.interfaces.GetProductUseCase;
 import com.lanchonete.product.repository.ProductPort;
 import com.lanchonete.product.utils.ProductMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
+@AllArgsConstructor
 public class GetProductService implements GetProductUseCase {
 
-    ProductPort productPort;
+    private ProductPort productPort;
 
     @Override
     public Product getProduct(String id) {

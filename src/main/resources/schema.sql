@@ -1,5 +1,4 @@
 -- Criar o schema se ainda não existir
-CREATE DATABASE IF NOT EXISTS product;
 USE product;
 
 -- Criar a tabela de categorias
@@ -19,17 +18,17 @@ CREATE TABLE IF NOT EXISTS product (
 );
 
 -- Inserir categorias se ainda não existirem
-INSERT INTO product_category (product_category_id, description) 
-    SELECT '11111111-1111-1111-1111-111111111111', 'Bebida' 
+INSERT INTO product_category (product_category_id, description)
+    SELECT '11111111-1111-1111-1111-111111111111', 'Bebida'
     WHERE NOT EXISTS (SELECT 1 FROM product_category WHERE product_category_id = '11111111-1111-1111-1111-111111111111');
 
-INSERT INTO product_category (product_category_id, description) 
-    SELECT '22222222-2222-2222-2222-222222222222', 'Lanche' 
+INSERT INTO product_category (product_category_id, description)
+    SELECT '22222222-2222-2222-2222-222222222222', 'Lanche'
     WHERE NOT EXISTS (SELECT 1 FROM product_category WHERE product_category_id = '22222222-2222-2222-2222-222222222222');
 
-INSERT INTO product_category (product_category_id, description) 
-    SELECT '33333333-3333-3333-3333-333333333333', 'Acompanhamento' 
-    WHERE NOT EXISTS (SELECT 1 FROM product_category WHERE product_category_id = '33333333-3333-3333-3333-333333333333');
+INSERT INTO product_category (product_category_id, description)
+    SELECT '33333333-3333-3333-3333-333333333333', 'Acompanhamento'
+    WHERE NOT  EXISTS (SELECT 1 FROM product_category WHERE product_category_id = '33333333-3333-3333-3333-333333333333');
 
 -- Inserir produtos se ainda não existirem
 INSERT INTO product (product_id, name, description, price, category_id)
